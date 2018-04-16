@@ -1,0 +1,35 @@
+#!/bin/bash
+#############################################################################
+# kill all applications if they has been started
+#############################################################################
+if [ "ps -ef | grep consul | grep -v grep | awk '{print $2}' | xargs echo" ]
+then
+ps -ef | grep consul | grep -v grep | awk '{print $2}' | xargs kill -9
+fi
+#############################################################################
+if [ "ps -ef | grep cassandra | grep -v grep | awk '{print $2}' | xargs echo" ]
+then
+ps -ef | grep cassandra | grep -v grep | awk '{print $2}' | xargs kill -9
+fi
+#############################################################################
+
+rm -vf $LOGDIR/cassandra.log
+
+# remove consul data directory and start it 
+rm -rf $CONSULDIR/data
+$CONSULDIR/consul agent --data-dir=$CONSULDIR/data --config-dir=$CONSULDIR/conf >> $LOGDIR/consul.log & 
+
+#checking application status
+if [ "ps -ef | grep consul | grep -v grep | awk '{print $2}' | xargs echo" ]
+then
+echo "OK - consul"
+fi
+
+cd $BASEDIR/microservices/userservice
+mvn spring-boot:run
+
+cd $BASEDIR/microservice/routerservice
+mvn spring-boot:run
+
+cd $BASEDIR/ui
+ng serve
