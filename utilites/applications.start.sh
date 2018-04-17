@@ -1,7 +1,7 @@
 #!/bin/bash
 ps -ef | grep consul | grep -v grep | awk '{print $2}' | xargs kill -9
-ps -ef | grep UserManagementService | grep -v grep | awk '{print $2}' | xargs kill -9
-ps -ef | grep RouterService | grep -v grep | awk '{print $2}' | xargs kill -9
+ps -ef | grep userservice | grep -v grep | awk '{print $2}' | xargs kill -9
+ps -ef | grep routerservice | grep -v grep | awk '{print $2}' | xargs kill -9
 
 export BASEDIR=$HOME/iversoft
 export INSTALLDIR=$BASEDIR/installation
@@ -26,4 +26,4 @@ mvn spring-boot:run >> $LOGDIR/userservice.log &
 
 cd $BASEDIR/ui
 npm install
-ng serve
+ng serve --proxy-config proxy.config.json
