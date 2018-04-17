@@ -28,11 +28,12 @@ then
 echo "OK - consul"
 fi
 
-cd $BASEDIR/microservices/userservice
-mvn spring-boot:run
+cd $BASEDIR/microservices/routerservice
+mvn spring-boot:run >> $LOGDIR/routerservice.log &
 
-cd $BASEDIR/microservice/routerservice
-mvn spring-boot:run
+cd $BASEDIR/microservices/userservice
+mvn spring-boot:run >> $LOGDIR/userservice.log &
 
 cd $BASEDIR/ui
+npm install
 ng serve
