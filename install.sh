@@ -13,7 +13,7 @@ ln -s $BASEDIR/applications/consul_1.0.6 $CONSULDIR
 
 mkdir -p $CONSULDIR/data
 mkdir -p $CONSULDIR/conf
-cp -R $HOME/crm/installation/applications/consul/ $CONSULDIR/
+cp -R $BASEDIR/installation/applications/consul/ $CONSULDIR/
 
 cp -R $INSTALLDIR/utilites/ $BASEDIR/utilites/
 
