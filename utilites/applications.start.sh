@@ -13,7 +13,10 @@ ps -ef | grep cassandra | grep -v grep | awk '{print $2}' | xargs kill -9
 fi
 #############################################################################
 
-rm -vf $LOGDIR/cassandra.log
+export BASEDIR=$HOME/iversoft
+export INSTALLDIR=$BASEDIR/installation
+export CONSULDIR=$BASEDIR/applications/consul
+export LOGDIR=$BASEDIR/logs
 
 # remove consul data directory and start it 
 rm -rf $CONSULDIR/data
