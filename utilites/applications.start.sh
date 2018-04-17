@@ -1,17 +1,7 @@
 #!/bin/bash
-#############################################################################
-# kill all applications if they has been started
-#############################################################################
-if [ "ps -ef | grep consul | grep -v grep | awk '{print $2}' | xargs echo" ]
-then
 ps -ef | grep consul | grep -v grep | awk '{print $2}' | xargs kill -9
-fi
-#############################################################################
-if [ "ps -ef | grep cassandra | grep -v grep | awk '{print $2}' | xargs echo" ]
-then
-ps -ef | grep cassandra | grep -v grep | awk '{print $2}' | xargs kill -9
-fi
-#############################################################################
+ps -ef | grep UserManagementService | grep -v grep | awk '{print $2}' | xargs kill -9
+ps -ef | grep RouterService | grep -v grep | awk '{print $2}' | xargs kill -9
 
 export BASEDIR=$HOME/iversoft
 export INSTALLDIR=$BASEDIR/installation
