@@ -2,7 +2,6 @@ export BASEDIR=$HOME/iversoft
 export INSTALLDIR=$BASEDIR/installation
 export PATH=$PATH:$BASEDIR
 
-mkdir -p $BASEDIR/applications/consul
 mkdir -p $BASEDIR/logs
 export CONSULDIR=$BASEDIR/applications/consul
 export LOGDIR=$BASEDIR/logs
