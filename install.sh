@@ -8,6 +8,8 @@ export LOGDIR=$BASEDIR/logs
 export PATH=$PATH:$CONSULDIR
 
 mkdir -p $BASEDIR/applications/consul_1.0.6
+cp -R $BASEDIR/applications/consul/ $BASEDIR/applications/consul_1.0.6/
+rm -rf $BASEDIR/applications/consul
 ln -s $BASEDIR/applications/consul_1.0.6 $CONSULDIR
 
 mkdir -p $CONSULDIR/data
