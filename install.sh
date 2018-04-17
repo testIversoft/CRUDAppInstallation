@@ -34,3 +34,4 @@ rm consul_1.0.6.zip
 rm consul
 
 git clone git@github.com:testIversoft/backend.git $BASEDIR/microservices
+git clone git@github.com:testIversoft/frontend.git $BASEDIR/ui
