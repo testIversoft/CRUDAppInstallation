@@ -9,7 +9,7 @@ export LOGDIR=$BASEDIR/logs
 export PATH=$PATH:$CONSULDIR
 
 mkdir -p $BASEDIR/applications/consul_1.0.6
-ln -s $HOME/crm/applications/consul_1.0.6 $CONSULDIR
+ln -s $BASEDIR/applications/consul_1.0.6 $CONSULDIR
 
 mkdir -p $CONSULDIR/data
 mkdir -p $CONSULDIR/conf
@@ -33,4 +33,4 @@ cp consul $CONSULDIR/
 rm consul_1.0.6.zip
 rm consul
 
-git clone -b develop git@github.com:testIversoft/CRUDApp.git $BASEDIR/microservices
+git clone git@github.com:testIversoft/backend.git $BASEDIR/microservices
