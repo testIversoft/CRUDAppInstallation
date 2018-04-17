@@ -25,7 +25,7 @@ It's a frame - too many work undone here. No data validation, no tests, etc. Loo
 ### Install and Run
 ```
 cd ~
-git clone git@github.com:testIversoft/CRUDAppInstallation.git 
-~/iversoft~/iversoft/install.sh
+git clone git@github.com:testIversoft/CRUDAppInstallation.git ~/iversoft
+~/iversoft/install.sh
 ~/iversoft/utilites/applications.start.sh
 ```
